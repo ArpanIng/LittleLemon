@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section>
+  <article>
+    <h1>Menu item</h1>
+    <span>
+      <a href="{% url 'homepage' %}">Home</a> /
+      <a href="{% url 'menu' %}">Menu</a>/ {{ menu.name }}
+    </span>
+    <div class="row">
+      <div class="column">
+        <h2>{{ menu.name }}</h2>
+        <p>{{ menu.description }}</p>
+        <p>Price: ${{ menu.price }}.00</p>
+      </div>
+      <div class="column">
+        {% if menu.menu_image %}
+        <img src="{{ menu.menu_image.url }}" alt="{{ menu.name }}" />
+        {% endif %}
+      </div>
+    </div>
+  </article>
+</section>
+{% endblock %}
