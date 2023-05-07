@@ -115,7 +115,7 @@ label {
     display: block;
   }
 
-input{
+input, select{
     width: 80%;
     display: block;
     padding: .5rem 1rem;
