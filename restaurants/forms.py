@@ -6,4 +6,5 @@ from .models import Booking
 class BookingModelForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ("first_name", "last_name", "no_of_guests", "comments")
+        fields = "__all__"
+        # fields = ("first_name", "last_name", "no_of_guests", "comments")

@@ -2,14 +2,12 @@ from django.db import models
 
 
 class Booking(models.Model):
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    no_of_guests = models.IntegerField()
-    booking_date = models.DateField(auto_now=True)
-    comments = models.CharField(max_length=1000)
+    first_name = models.CharField(max_length=200)
+    reservation_date = models.DateField()
+    reservation_slot = models.SmallIntegerField(default=10)
 
     def __str__(self) -> str:
-        return f"{self.first_name} {self.last_name}"
+        return f"{self.first_name}"
 
 
 class Menu(models.Model):
