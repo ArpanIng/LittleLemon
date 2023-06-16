@@ -3,8 +3,7 @@ from django import forms
 from .models import Booking
 
 
-class BookingModelForm(forms.ModelForm):
+class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = "__all__"
-        # fields = ("first_name", "last_name", "no_of_guests", "comments")
+        fields = ("name", "reservation_slot", "reservation_date")

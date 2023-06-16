@@ -1,4 +1,7 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
 <section>
   <article>
     <h1>Make a reservation</h1>
@@ -10,13 +13,13 @@
         <form method="POST" id="form">
           <!-- {% csrf_token %} -->
           <p>
-            <label for="first_name">Name:</label>
+            <label for="name">Name:</label>
             <input
               type="text"
               placeholder="Your Name"
               maxlength="200"
               required=""
-              id="first_name"
+              id="name"
             />
           </p>
           <p>
@@ -76,7 +79,7 @@
         for (let item of data) {
           console.log(item.fields);
           reserved_slots.push(item.fields.reservation_slot);
-          bookings += `<p>${item.fields.first_name} - ${formatTime(
+          bookings += `<p>${item.fields.name} - ${formatTime(
             item.fields.reservation_slot
           )}</p>`;
         }
@@ -107,7 +110,7 @@
 
   document.getElementById("button").addEventListener("click", function (e) {
     const formdata = {
-      first_name: document.getElementById("first_name").value,
+      name: document.getElementById("name").value,
       reservation_date: document.getElementById("reservation_date").value,
       reservation_slot: document.getElementById("reservation_slot").value,
     };
