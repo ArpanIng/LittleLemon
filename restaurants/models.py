@@ -1,13 +1,14 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Booking(models.Model):
-    first_name = models.CharField(max_length=200)
-    reservation_date = models.DateField()
+    name = models.CharField(max_length=200)
     reservation_slot = models.SmallIntegerField(default=10)
+    reservation_date = models.DateField(default=timezone.now)
 
     def __str__(self) -> str:
-        return f"{self.first_name}"
+        return f"{self.name}: {self.reservation_date}"
 
 
 class Menu(models.Model):

@@ -6,8 +6,7 @@ from django.shortcuts import render
 from django.views import generic
 from django.views.decorators.csrf import csrf_exempt
 
-
-from .forms import BookingModelForm
+from .forms import BookingForm
 from .models import Menu, Booking
 
 
@@ -32,9 +31,9 @@ class MenuItemView(generic.DetailView):
 
 
 def book(request):
-    form = BookingModelForm()
+    form = BookingForm()
     if request.method == "POST":
-        form = BookingModelForm(request.POST)
+        form = BookingForm(request.POST)
         if form.is_valid():
             form.save()
 
@@ -62,7 +61,7 @@ def bookings(request):
         )
         if exist == False:
             booking = Booking(
-                first_name=data["first_name"],
+                name=data["name"],
                 reservation_date=data["reservation_date"],
                 reservation_slot=data["reservation_slot"],
             )
